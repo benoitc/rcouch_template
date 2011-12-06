@@ -1,8 +1,8 @@
 # Rebar templates for generating custom couchdb releases 
 
 This project provide rebar templates that allows you to create your own
-CouchDB releases or embed CouchDB applications based on the rebared
-version of Apache CouchDB provided by the [refuge
+CouchDB releases or embed CouchDB applications based on the [rebared
+version](https://github.com/refuge/rcouch) of Apache CouchDB provided by the [refuge
 project](http://refuge.io). 
 
 Platforms supported are Linux, FreeBSD 8.0x and sup, MacOSX 10.6/10.7
