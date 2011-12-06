@@ -17,7 +17,11 @@ homebrew:
     $ brew update
     $ brew install rebar
 
-*Note:*make sure to use latest rebar version/
+Or build it from the source
+
+    $ git clone
+
+*Note:*make sure to use latest rebar version.
 
 Drop these templates in ~/.rebar/templates.
 
@@ -25,7 +29,7 @@ Drop these templates in ~/.rebar/templates.
 ##Create a custom CouchDB release
 
 To create a custom release of CouchDB with your own plugins, use the
-**rcouch** templatefor trunk or **rcouch11** for 1.1.x branch:
+**rcouch** templatefor:
 
     $ mkdir myapp
     $ rebar create template=rcouch appid=myapp
@@ -43,8 +47,7 @@ rebar config and editing rel/reltool.config.
 ##Embed CouchDB in your application
 
 To start an Erlang OTP application that embed CouchDB, use the
-**rebar_embed** template for trunk or **rcouch11_embed** for 1.1.x
-branch:
+**rebar_embed** template:
 
     $ mkdir myapp
     $ rebar create template=rcouch_embed appid=myapp
