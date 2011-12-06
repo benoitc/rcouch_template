@@ -1,0 +1,28 @@
+%% -*- tab-width: 4;erlang-indent-level: 4;indent-tabs-mode: nil -*-
+%% ex: ft=erlang ts=4 sw=4 et
+
+{variables, [{appid, "myapp"},
+             {node, "{{node}}"},
+             {crash_dump, "{{crash_dump}}"},
+             {rel_vsn, "{{rel_vsn}}"},
+             {erts_vsn, "{{erts_vsn}}"}
+    ]}.
+
+
+{template, "rcouch.Makefile", "Makefile"}.
+{template, "rcouch.gitignore", ".gitignore"}.
+{template, "rcouch.rebar.config", "rebar.config"}.
+{template, "rcouch.md", "README.md"}.
+
+{template, "rcouch.rel/rcouch.config", "rel/{{appid}}.config"}.
+{template, "rcouch.rel/reltool.config", "rel/reltool.config"}.
+{file, "rcouch.rel/files/rcouch", "rel/files/{{appid}}"}.
+{chmod, 8#744, "rel/files/{{appid}}"}.
+{file, "rcouch.rel/files/erl", "rel/files/erl"}.
+{chmod, 8#744, "rel/files/erl"}.
+{file, "rcouch.rel/files/default.ini", "rel/files/default.ini"}.
+{file, "rcouch.rel/files/local.ini", "rel/files/local.ini"}.
+{file, "rcouch.rel/files/nodetool", "rel/files/nodetool"}.
+{chmod, 8#744, "rel/files/nodetool"}.
+{file, "rcouch.rel/files/app.config", "rel/files/app.config"}.
+{template, "rcouch.rel/files/vm.args", "rel/files/vm.args"}.
