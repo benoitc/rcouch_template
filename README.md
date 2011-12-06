@@ -29,7 +29,7 @@ Drop these templates in ~/.rebar/templates.
 ##Create a custom CouchDB release
 
 To create a custom release of CouchDB with your own plugins, use the
-**rcouch** templatefor:
+**rcouch** template for:
 
     $ mkdir myapp
     $ rebar create template=rcouch appid=myapp
