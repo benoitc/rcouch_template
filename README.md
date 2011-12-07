@@ -1,6 +1,6 @@
 # Rebar templates for generating custom couchdb releases 
 
-This project provide rebar templates that allows you to create your own
+This project provides rebar templates that allows you to create your own
 CouchDB releases or embed CouchDB applications based on the [rebared
 version](https://github.com/refuge/rcouch) of Apache CouchDB provided by the [refuge
 project](http://refuge.io). 
@@ -17,11 +17,11 @@ homebrew:
     $ brew update
     $ brew install rebar
 
-Or build it from the source
+Or build it from source
 
     $ git clone
 
-*Note:*make sure to use latest rebar version.
+*Note:*make sure to use the latest rebar version.
 
 Drop these templates in ~/.rebar/templates.
 
@@ -29,28 +29,24 @@ Drop these templates in ~/.rebar/templates.
 ##Create a custom CouchDB release
 
 To create a custom release of CouchDB with your own plugins, use the
-**rcouch** template for:
+**rcouch** template:
 
-    $ mkdir myapp
     $ rebar create template=rcouch appid=myapp
 
 
-Then a full custom release has been installed. To use it:
-
+This prepares a custom rcouch release in the rel directory. You can
+customize it by adding your plugins to rebar config and editing
+rel/reltool.config. Then build and run it:
 
     $ make rel
     $ ./rel/myapp/bin/myapp
 
-You can now start to customize your release by adding your plugins to
-rebar config and editing rel/reltool.config.
-
 ##Embed CouchDB in your application
 
-To start an Erlang OTP application that embed CouchDB, use the
+To start an Erlang OTP application that embeds CouchDB, use the
 **rebar_embed** template:
 
-    $ mkdir myapp
     $ rebar create template=rcouch_embed appid=myapp
 
-It create a custom app in apps/myapp/src that you can edit. Then use it
+It creates a custom app in apps/myapp/src that you can edit. Then use it
 like above.
