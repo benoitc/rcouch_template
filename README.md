@@ -21,7 +21,7 @@ Or build it from source
 
     $ git clone
 
-*Note:*make sure to use the latest rebar version.
+*Note:* make sure to use the latest rebar version.
 
 Drop these templates in ~/.rebar/templates.
 
@@ -50,3 +50,36 @@ To start an Erlang OTP application that embeds CouchDB, use the
 
 It creates a custom app in apps/myapp/src that you can edit. Then use it
 like above.
+
+##Notes on building a truly distributable package
+
+The package built above will still depend on some libraries from your
+system, so additional work has to be done to distribute it to
+older/newer systems.
+
+1. CouchDB will depend on the ICU library version that was present in
+   your system at build time. To easily bundle this library with the
+   package, build with:
+
+         $ make rel USE_STATIC_ICU=1
+
+1. Check whether your package depends on Ncurses:
+
+         $ ldd ./rel/myapp/erts-*/bin/erlexec|grep ncurses
+
+    If it does, copy the .so file to ./rel/myapp/lib/ or rebuild Erlang
+    without this dependency.
+
+1. Decide whether you need SSL support in your package and check whether it
+   depends on OpenSSL:
+
+         $ ldd ./rel/myapp/lib/ssl-*/priv/bin/ssl_esock|grep 'libcrypto\|libssl'
+
+    If it does, copy the .so file to ./rel/myapp/lib/ or rebuild Erlang
+    without this dependency.
+
+If you copied any .so files in the last 2 steps, run this command, so
+that your app can find the libraries:
+
+    $ sed -i '/^RUNNER_USER=/a\\nexport LD_LIBRARY_PATH="$RUNNER_BASE_DIR/lib"' ./rel/myapp/bin/myapp
+
