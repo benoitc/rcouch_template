@@ -21,4 +21,4 @@ rel: relclean deps
 	@rebar compile generate
 
 relclean:
-	@rm -rf rel/rcouch
+	@rm -rf rel/{{appid}}
