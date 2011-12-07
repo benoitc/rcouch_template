@@ -15,7 +15,6 @@
 
 
 {template, "rcouch_embed.app.src", "apps/{{appid}}/src/{{appid}}.app.src"}.
-{template, "rcouch_embed.erl", "apps/{{appid}}/src/{{appid}}.erl"}.
 {template, "rcouch_embed_app.erl", "apps/{{appid}}/src/{{appid}}_app.erl"}.
 {template, "rcouch_embed_sup.erl", "apps/{{appid}}/src/{{appid}}_sup.erl"}.
 
